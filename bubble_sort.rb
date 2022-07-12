@@ -9,12 +9,13 @@
 unsorted_array = [4,3,78,2,0,2]
 
 def bubble_sort(array)
-  array.each_with_index.reduce() do |memo, (element, i)| 
-    if memo[0] > element
-      array[i] = memo[0]
-      array[i-1] = element
-      memo = array[i..i+1]
-    else memo = array[i..i+1]
+  for i in array do
+    array.each_with_index.reduce() do |memo, (element, i)| 
+      if memo[0] > element
+        array[i] = memo[0]
+        array[i-1] = element
+      end
+        memo = array[i..i+1]
     end
   end
   array
