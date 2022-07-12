@@ -11,9 +11,8 @@ test_array = [1,2,3,4,5]
 
 def bubble_sort(array)
   not_sorted = true
-  passes = 0
   swaps = 0
-  while not_sorted && (passes < array.length - 1) do
+  while not_sorted do
     swaps = 0
     array.each_with_index.reduce() do |memo, (element, i)| 
       if memo[0] > element
@@ -24,12 +23,13 @@ def bubble_sort(array)
       end
       memo = array[i..i+1]
     end
-    if swaps == 0 then not_sorted = false end
-    passes += 1
-    p passes
+    if swaps == 0 
+      p "it was not swapped"
+      not_sorted = false 
+    end
   end
   array
 end
 
-# p bubble_sort(unsorted_array)
+p bubble_sort(unsorted_array)
 p bubble_sort(test_array)
